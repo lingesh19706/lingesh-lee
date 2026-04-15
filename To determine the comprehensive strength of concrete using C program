@@ -1,0 +1,23 @@
+1.	Comprehensive strength program
+#include<stdio.h>
+int main()
+{
+  float cs;
+  printf("enter comprehensive strength\n");
+  scanf("%f",&cs);
+  if(cs>=40)
+  printf("concrete quality is excellent\n");
+  else if(cs>=30 && cs<40)
+  printf("concrete quality id good\n");
+  else if(cs>=20 && cs<30)
+  printf("concrete quality is average\n");
+  else if(cs<20)
+  printf("concrete quality is poor\n");
+  else
+  printf("invalid input\n");
+  return 0;
+}
+OUTPUT:
+Enter the comprehensive strength : 15
+enter comprehensive strength
+concrete quality is poor
