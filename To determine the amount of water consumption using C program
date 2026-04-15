@@ -1,0 +1,23 @@
+2. Water consumption program
+#include<stdio.h>
+int main()
+{
+  float wc;
+  printf("enter water consumption\n");
+  scanf("%f",&wc);
+  if(wc>=1500)
+  printf(" high consumption\n");
+  else if(wc>=501 && wc<1500)
+  printf("medium consumption\n");
+  else if(wc<500)
+  printf("low consumption\n");
+  else
+  printf("invalid input\n");
+  return 0;
+}
+OUTPUT:
+Enter the water consumption : 2000
+enter water consumption
+ high consumption
+
+
