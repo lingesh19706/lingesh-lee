@@ -1,0 +1,24 @@
+9. Triangle program
+#include <stdio.h>
+int main()	
+{
+  int rows,columns,i,j,h;
+  printf("Enter the height :");
+  scanf("%d",&h);
+  for(i=1;i<=h;i++)
+  {
+      for(j=1;j<=i;j++)
+      {
+          printf("*");
+      }
+      printf("\n");
+  }
+      }
+OUTPUT :
+ Enter the height :6
+*
+**
+***
+****
+*****
+******
