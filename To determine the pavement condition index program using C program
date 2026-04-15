@@ -1,0 +1,27 @@
+4. Pavement condition index program
+
+#include<stdio.h>
+int main()
+{
+  float pci;
+  printf("enter pavement condition index\n");
+  scanf("%f",&pci);
+  if(pci>=85)
+  printf("PCI is excellent\n");
+  else if(pci>=70 && pci<85)
+  printf("PCI is good\n");
+  else if(pci>=55 && pci<70)
+  printf("PCI is fair\n");
+  else if(pci<55)
+  printf("PCI is poor\n");
+  else
+  printf("invalid input\n");
+  return 0;
+}
+
+OUTPUT:
+
+Enter the pavent condition index : 75
+enter pavement condition index
+PCI is good
+
