@@ -1,0 +1,24 @@
+3. Crack width program
+
+#include<stdio.h>
+int main()
+{
+  float cw;
+  printf("enter crack width\n");
+  scanf("%f",&cw);
+  if(cw>=1)
+  printf("major repair required\n");
+  else if(cw>=0.3 && cw<1)
+  printf("minor repair needed\n");
+  else if(cw<0.3)
+  printf("safe\n");
+  else
+  printf("invalid input\n");
+  return 0;
+}
+
+OUTPUT:
+Enter the crack width : 0.7
+enter crack width
+minor repair needed
+
