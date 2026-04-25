@@ -1,0 +1,48 @@
+
+/* --- Comparison Strategies --- */
+
+int lexicographic_sort(const char* a, const char* b) {
+    return strcmp(a, b);
+}
+
+int lexicographic_sort_reverse(const char* a, const char* b) {
+    return strcmp(b, a);
+}
+
+// Counts unique lowercase letters using a frequency array
+int count_distinct(const char* s) {
+    int count = 0;
+    int hash[26] = {0};
+    for (int i = 0; s[i] != '\0'; i++) {
+        if (hash[s[i] - 'a'] == 0) {
+            hash[s[i] - 'a'] = 1;
+            count++;
+        }
+    }
+    return count;
+}
+
+int sort_by_number_of_distinct_characters(const char* a, const char* b) {
+    int res = count_distinct(a) - count_distinct(b);
+    return (res == 0) ? strcmp(a, b) : res;
+}
+
+int sort_by_length(const char* a, const char* b) {
+    int res = strlen(a) - strlen(b);
+    return (res == 0) ? strcmp(a, b) : res;
+}
+
+/* --- Generic Sorting Function --- */
+
+void string_sort(char** arr, const int len, int (*cmp_func)(const char* a, const char* b)) {
+    // Standard Bubble Sort implementation
+    for (int i = 0; i < len; i++) {
+        for (int j = 0; j < len - 1; j++) {
+            if (cmp_func(arr[j], arr[j + 1]) > 0) {
+                char* temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
