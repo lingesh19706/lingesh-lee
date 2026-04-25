@@ -1,0 +1,49 @@
+#include <stdio.h>
+int ratsAndfood(int r,int unit,int arr[],int n)
+{
+  int totalfood=0;
+  int requiredfood=r*unit;
+  int i;
+  if(arr==NULL)
+  return-1;
+  for(i=0;i<n;i++)
+  {
+    totalfood+=arr[i];
+    if(totalfood>=requiredfood)
+    return i+1;
+  }
+  return 0;
+}
+int main()
+{
+  int r,unit,arr[50],n,i;
+  printf("Enter no of rats and units each rats consumes\n");
+  scanf("%d %d",&r,&unit);
+  printf("Enter no of houses\n");
+  scanf("%d",&n);
+  printf("Enter the food units available in each house\n");
+  for(i=0;i<n;i++)
+  {
+    printf("\nhouse%d",i+1);
+    scanf("%d",&arr[i]);
+  }
+  /*int r=7,unit=2;
+  inr arr[]={2,8,3,5,7,4,1,2};
+  int n=size of (arr)/size of (arr[0]);*/
+  int result=ratsAndfood(r,unit,arr,n);
+  printf("Output:%d",result);
+  return 0;
+}
+Sample Input : 5 2 5 1 5 3 4 6
+
+OUTPUT :
+Enter no of rats and units each rats consumes
+Enter no of houses
+Enter the food units available in each house
+
+house1
+house2
+house3
+house4
+house5Output:4
+
