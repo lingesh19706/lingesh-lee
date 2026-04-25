@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <string.h>
+struct Employee {
+    int id;
+    char name[50];
+    float basic, hra, da, gross;
+};
+int main() {
+    int n, i, max_idx = 0;
+    printf("Enter number of employees: ");
+    scanf("%d", &n);
+    struct Employee emp[n];
+    for(i = 0; i < n; i++) {
+        printf("\n--- Details for Employee %d ---\n", i + 1);
+        printf("ID: ");
+        scanf("%d", &emp[i].id);
+        printf("Name: ");
+        scanf("%s", emp[i].name);
+        printf("Basic Salary: ");
+        scanf("%f", &emp[i].basic);
+        printf("HRA: ");
+        scanf("%f", &emp[i].hra);
+        printf("DA: ");
+        scanf("%f", &emp[i].da);
+        emp[i].gross = emp[i].basic + emp[i].hra + emp[i].da;
+        if (emp[i].gross > emp[max_idx].gross) {
+            max_idx = i;
+        }
+    }
+    printf("\nID\tName\tGross Salary\n");
+    printf("------------------------------\n");
+    for(i = 0; i < n; i++) {
+        printf("%d\t%s\t%.2f\n", emp[i].id, emp[i].name, emp[i].gross);
+    }
+    printf("\n>>> Highest Paid Employee: %s (ID: %d) with Gross Salary: %.2f\n", 
+           emp[max_idx].name, emp[max_idx].id, emp[max_idx].gross);
+    return 0;
+}
+
+OUTPUT :
+Enter number of employees: 4
+--- Details for Employee 1 ---
+ID: 28
+Name: jebi
+Basic Salary: 30000
+HRA: 2000
+DA: 3000
+
+--- Details for Employee 2 ---
+ID: 29
+Name: karthi
+Basic Salary: 30000
+HRA: 3000
+DA: 2000
+
+--- Details for Employee 3 ---
+ID: 30
+Name: kishore
+Basic Salary: 30000
+HRA: 2500
+DA: 3000
+
+--- Details for Employee 4 ---
+ID: 31
+Name: lee
+Basic Salary: 30000
+HRA: 3000
+DA: 3000
+
+ID      Name    Gross Salary
+------------------------------
+28      jebi    35000.00
+29      karthi  35000.00
+30      kishore 35500.00
+31      lee     36000.00
+
+>>> Highest Paid Employee: lee (ID: 31) with Gross Salary: 36000.00
+
