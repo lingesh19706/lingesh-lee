@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main() {
+
+    char *s;
+    s = malloc(1024 * sizeof(char));
+    
+    // Read the entire sentence until a newline is encountered
+    scanf("%[^\n]", s);
+    
+    // Reallocate memory to fit the actual string size (optional but good practice)
+    s = realloc(s, strlen(s) + 1);
+
+    // Loop through each character of the string
+    for (int i = 0; s[i] != '\0'; i++) {
+        if (s[i] == ' ') {
+            // If we find a space, move to the next line
+            printf("\n");
+        } else {
+            // Otherwise, print the character
+            printf("%c", s[i]);
+        }
+    }
+    
+    // Final newline for clean output
+    printf("\n");
+    
+    free(s);
+    return 0;
+}
