@@ -1,0 +1,29 @@
+ #include<stdio.h>
+int main(){
+    float dead_load,live_load,wind_load,Total_load;
+    float safe_limit=500;
+    printf("Enter Dead Load(KN):");
+    scanf("%f",&dead_load);
+    printf("Enter Live Load(KN):");
+    scanf("%f",&live_load);
+    printf("Enter Wind Load(KN):");
+    scanf("%f",&wind_load);
+    Total_load=dead_load+live_load+wind_load;
+    printf("\nTotal Load=%.2f KN",Total_load);
+    if(Total_load > safe_limit)
+    printf("\nWARNING:Load Exceeds Safe Limit!");
+    else
+    printf("\nStructure is Within Safe Limit.");
+    return 0;
+}
+OUTPUT :
+20 5 10
+Enter Dead Load(KN):Enter Live Load(KN):Enter Wind Load(KN):
+Total Load=35.00 KN
+Structure is Within Safe Limit.
+
+
+100 250 300
+Enter Dead Load(KN):Enter Live Load(KN):Enter Wind Load(KN):
+Total Load=650.00 KN
+WARNING:Load Exceeds Safe Limit!
