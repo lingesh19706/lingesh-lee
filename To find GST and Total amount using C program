@@ -1,0 +1,41 @@
+15.GST and Total Amount Program 
+#include <stdio.h>
+int main() {
+	float cement_quantity,steel_quantity,sand_quantity;
+	float cement_rate,steel_rate,sand_rate;
+	float cement_cost,steel_cost,sand_cost;
+	float Total,gst,Final_amount;
+	printf("Enter the cement quantity(bags):");
+	scanf("%f",&cement_quantity);
+	printf("Enter rate per bag:");
+	scanf("%f",&cement_rate);
+	printf("Enter the steel quantity(kg):");
+	scanf("%f",&steel_quantity);
+	printf("Enter rate per kg:");
+	scanf("%f",&steel_rate);
+	printf("Enter the sand quantity(tons):");
+	scanf("%f",&sand_quantity);
+	printf("Enter rate per ton:");
+	scanf("%f",&sand_rate);
+	cement_cost=cement_quantity*cement_rate;
+	steel_cost=steel_quantity*steel_rate;
+	sand_cost=sand_quantity*sand_rate;
+	Total=cement_cost+steel_cost+sand_cost;
+	gst=Total*0.18;
+	Final_amount=Total+gst;
+	printf("\nTotal Material Cost = %.2f",Total);
+	printf("\nGST(18%%)=%.2f",gst);
+	printf("\nFinal Amount = %.2f\n",Final_amount);
+	return 0;
+}
+OUTPUT :
+Enter the cement quantity(bags):10
+Enter rate per bag:500
+Enter the steel quantity(kg):100 
+Enter rate per kg:50
+Enter the sand quantity(tons):2
+Enter rate per ton:5000
+
+Total Material Cost = 20000.00
+GST(18%)=3600.00
+Final Amount = 23600.00
