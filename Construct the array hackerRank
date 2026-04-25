@@ -1,0 +1,20 @@
+#include <stdio.h>
+#define MOD 1000000007
+long countArray(int n, int k, int x) {    
+    long long ends_at_x = (x == 1) ? 1 : 0;
+    long long not_ends_at_x = (x == 1) ? 0 : 1;    
+    for (int i = 2; i <= n; i++) {
+        long long prev_ends = ends_at_x;
+        long long prev_not_ends = not_ends_at_x;
+        ends_at_x = prev_not_ends;     
+        not_ends_at_x = (prev_ends * (k - 1) + prev_not_ends * (k - 2)) % MOD;
+    }
+    return (long)ends_at_x;
+}
+int main() {
+    int n, k, x;
+    if (scanf("%d %d %d", &n, &k, &x) == 3) {
+        printf("%ld\n", countArray(n, k, x));
+    }
+    return 0;
+}
