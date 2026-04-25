@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+// Function to find Greatest Common Divisor (GCD)
+long gcd(long a, long b) {
+    while (b) {
+        a %= b;
+        long temp = a;
+        a = b;
+        b = temp;
+    }
+    return a;
+}
+
+// Function to find Least Common Multiple (LCM)
+long lcm(long a, long b) {
+    if (a == 0 || b == 0) return 0;
+    return (a * b) / gcd(a, b);
+}
+
+int getTotalX(int a_count, int* a, int b_count, int* b) {
+    // 1. Find LCM of all elements in array a
+    long l = a[0];
+    for (int i = 1; i < a_count; i++) {
+        l = lcm(l, a[i]);
+    }
+
+    // 2. Find GCD of all elements in array b
+    long g = b[0];
+    for (int i = 1; i < b_count; i++) {
+        g = gcd(g, b[i]);
+    }
+
+    // 3. Count multiples of LCM that divide the GCD
+    int count = 0;
+    for (long i = l, j = 1; i <= g; i = l * ++j) {
+        if (g % i == 0) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+int main() {
+    int n, m;
+    if (scanf("%d %d", &n, &m) != 2) return 0;
+
+    int a[n], b[m];
+    for (int i = 0; i < n; i++) scanf("%d", &a[i]);
+    for (int i = 0; i < m; i++) scanf("%d", &b[i]);
+
+    printf("%d\n", getTotalX(n, a, m, b));
+
+    return 0;
+}
