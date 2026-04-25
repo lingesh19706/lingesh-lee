@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * simpleArraySum: Computes the sum of elements in an array.
+ * @ar_count: number of elements in the array
+ * @ar: pointer to the integer array
+ * Returns: the total sum (int)
+ */
+int simpleArraySum(int ar_count, int* ar) {
+    int sum = 0;
+    for (int i = 0; i < ar_count; i++) {
+        sum += ar[i];
+    }
+    return sum;
+}
+
+int main() {
+    int n;
+    // Read the size of the array
+    if (scanf("%d", &n) != 1) return 0;
+    
+    // Allocate memory for the array
+    int *ar = (int*)malloc(n * sizeof(int));
+    
+    // Read array elements
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &ar[i]);
+    }
+    
+    // Calculate and print the sum
+    int result = simpleArraySum(n, ar);
+    printf("%d\n", result);
+    
+    // Clean up allocated memory
+    free(ar);
+    
+    return 0;
+}
+
