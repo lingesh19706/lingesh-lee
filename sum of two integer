@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+/**
+ * Function to compute the sum of two integers.
+ * @a: the first value
+ * @b: the second value
+ * Returns: the sum of a and b
+ */
+int solve(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int a, b;
+    
+    // Reading input values for a and b
+    if (scanf("%d %d", &a, &b) == 2) {
+        // Calling the function and printing the result
+        int sum = solve(a, b);
+        printf("%d\n", sum);
+    }
+    
+    return 0;
+}
+
