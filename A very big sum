@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+/**
+ * Complete the 'aVeryBigSum' function below.
+ */
+long long aVeryBigSum(int ar_count, long long* ar) {
+    long long sum = 0;
+    
+    for (int i = 0; i < ar_count; i++) {
+        sum += ar[i];
+    }
+    
+    return sum;
+}
+
+int main() {
+    int n;
+    // Read the size of the array
+    if (scanf("%d", &n) != 1) return 1;
+    
+    long long ar[n];
+    
+    // Read the large integers into the array
+    for (int i = 0; i < n; i++) {
+        // Use %lld for long long input
+        scanf("%lld", &ar[i]);
+    }
+    
+    // Calculate and print the result
+    long long result = aVeryBigSum(n, ar);
+    printf("%lld\n", result);
+    
+    return 0;
+}
